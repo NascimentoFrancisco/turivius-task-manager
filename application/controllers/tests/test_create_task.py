@@ -15,7 +15,7 @@ class CreateTaskAPIViewTestCase(APITestCase):
             email="test@test.com",
             password="1234"
         )
-        self.create_url = reverse('create_tastk_api')
+        self.create_url = reverse('create_task_api')
 
 
     def test_create_task_authenticated(self):
