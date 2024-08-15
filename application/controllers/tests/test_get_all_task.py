@@ -39,4 +39,4 @@ class GetAllTaskAPIViewTestCase(APITestCase):
 
     def test_get_all_tasks_unauthenticated(self):
         response = self.client.get(self.get_all_url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)

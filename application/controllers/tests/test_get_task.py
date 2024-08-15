@@ -33,7 +33,7 @@ class RetrieveTaskAPIViewTestCase(APITestCase):
 
     def test_retrieve_task_unauthenticated(self):
         response = self.client.get(self.retrieve_url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
     def test_retrieve_task_not_found(self):

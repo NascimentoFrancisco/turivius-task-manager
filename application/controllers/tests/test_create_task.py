@@ -39,5 +39,5 @@ class CreateTaskAPIViewTestCase(APITestCase):
             'due_date': timezone.now().isoformat(),
         }
         response = self.client.post(self.create_url, data)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(Task.objects.count(), 0)

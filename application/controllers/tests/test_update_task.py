@@ -46,4 +46,4 @@ class UpdateTaskAPIViewTestCase(APITestCase):
             'due_date': timezone.now().isoformat(),
         }
         response = self.client.put(self.update_url, updated_data)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)

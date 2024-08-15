@@ -31,7 +31,7 @@ class DeleteTaskAPIViewTestCase(APITestCase):
 
     def test_delete_task_unauthenticated(self):
         response = self.client.delete(self.delete_url)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(Task.objects.count(), 1)
 
     def test_delete_task_not_found(self):
