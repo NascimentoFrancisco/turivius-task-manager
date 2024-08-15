@@ -8,6 +8,12 @@ disable=
       R0903, # too-few-public-methods
       R0913, #too-many-arguments
       W0718, #broad-exception-caught
+      C0415, #import-outside-toplevel
+      W0401, #wildcard-import
+      C0103,
+      C0301,
+      W0614,
+      W0611
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
