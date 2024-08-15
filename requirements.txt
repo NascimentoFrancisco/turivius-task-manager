@@ -4,6 +4,7 @@ cfgv==3.4.0
 dill==0.3.8
 distlib==0.3.8
 Django==5.1
+djangorestframework==3.15.2
 filelock==3.15.4
 identify==2.6.0
 isort==5.13.2
