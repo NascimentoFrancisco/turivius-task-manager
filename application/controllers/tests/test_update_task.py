@@ -21,12 +21,20 @@ class UpdateTaskAPIViewTestCase(APITestCase):
             description="Original Description",
             due_date=timezone.now()
         )
+        self.response = self.client.post(
+            reverse("token_obtain_pair"),
+            {'email':'test@test.com', 'password':'1234'}
+        )
+
+        self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {self.response.data['access']}")
+
         self.update_url = reverse('update_task_api', kwargs={'id': self.task.id})
+
+        return super().setUp()
 
 
     def test_update_task_authenticated(self):
 
-        self.client.login(email='test@test.com', password='1234')
         updated_data = {
             'title': 'Updated Title',
             'description': 'Updated Description',
@@ -40,6 +48,7 @@ class UpdateTaskAPIViewTestCase(APITestCase):
 
 
     def test_update_task_unauthenticated(self):
+        self.client.credentials(HTTP_AUTHORIZATION="")
         updated_data = {
             'title': 'Updated Title',
             'description': 'Updated Description',
